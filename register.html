@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Registered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="webpage">
+    <header>
+        <h1>Race Registration</h1>
+    </header>
+    <h1>You have been registered!</h1>
+    <p id="name-paragraph"></p>
+    <p id="last-name-paragraph"></p>
+    <p id="race-paragraph"></p>
+    <p id="email-paragraph"></p>
+    <p id="age-paragraph"></p>
+<script>
+    var firstName = localStorage.getItem("firstname");
+    var lastName = localStorage.getItem("lastname");
+    var race = localStorage.getItem("selectrace");
+    var email = localStorage.getItem("email");
+
+    var nameParagraph = document.getElementById("name-paragraph");
+    nameParagraph.textContent = "Name: " + firstName;
+
+    var lastNameParagraph = document.getElementById("last-name-paragraph");
+    lastNameParagraph.textContent = "Last Name: " + lastName;
+
+    var raceParagraph = document.getElementById("race-paragraph");
+    raceParagraph.textContent = "Race: " + race;
+
+    var emailParagraph = document.getElementById("email-paragraph");
+    emailParagraph.textContent = "Email: " + email;
+</script>
+
+</body>
+</html>

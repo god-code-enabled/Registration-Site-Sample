@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Funathon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="webpage">
+  <header>
+    <h1>Race Registration</h1>
+  </header>
+  <form id="myForm" action="register.html" method="POST">
+    <div>
+      <span class="credentials">
+        <label for="firstname">First Name:</label>
+      </span>
+      <span>
+        <input type="text" name="firstname" id="firstname" required>
+      </span>
+    </div>
+    <div>
+      <span class="credentials">
+        <label for="lastname">Last Name:</label>
+      </span>
+      <span>
+        <input type="text" name="lastname" id="lastname" required>
+      </span>
+    </div>
+    <p><label>Select a Race:</label></p>
+    <div>
+      <span>
+        <input type="radio" name="selectrace" id="fivek" value="Fun Run 5k">
+        <label for="fivek">Fun Run 5k</label>
+      </span>
+    </div>
+    <div>
+      <input type="radio" name="selectrace" id="half" value="Half Marathon">
+      <label for="half">Half Marathon</label>
+    </div>
+    <div>
+      <input type="radio" name="selectrace" id="full" value="Full Marathon">
+      <label for="full">Full Marathon</label>
+    </div>
+    <div>
+      <span class="credentials">
+        <label for="email">Email:</label>
+      </span>
+      <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+    </div>
+    <div>
+      <span class="credentials">
+        <label for="password">Password:</label>
+      </span>
+      <input type="password" name="password" id="password" placeholder="min 8 characters" pattern=".{8,}" required
+        title="minimum 8 characters">
+    </div>
+    <div>
+      <p>
+        <label for="agegroup">Select Age Group:</label>
+      </p>
+      <select name="age" id="agegroup" required>
+        <option value="">**Please choose an option**</option>
+        <option value="youngadult">18-28</option>
+        <option value="adult">29-39</option>
+        <option value="midage+">40+</option>
+      </select>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var firstNameInput = document.getElementById("firstname");
+      var firstName = firstNameInput.value;
+      var lastNameInput = document.getElementById("lastname");
+      var lastName = lastNameInput.value;
+      var raceInput = document.querySelector('input[name="selectrace"]:checked');
+      var race = raceInput.value;
+      var emailInput = document.getElementById("email");
+      var email = emailInput.value;
+      localStorage.setItem("firstname", firstName);
+      localStorage.setItem("lastname", lastName);
+      localStorage.setItem("selectrace", race);
+      localStorage.setItem("email", email);
+      this.submit();
+    });
+
+  </script>
+</body>
+
+</html>
